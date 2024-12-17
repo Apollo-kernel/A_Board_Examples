@@ -1,0 +1,4 @@
+实验现象：
+	FreeRTOS在led_thread和usart_thread线程中等待指定信号发生。
+	signal_gen线程分别向前两个线程发送信号，恢复前两个线程运行。
+	led_thread线程每500ms翻转一次LED灯，usart_thread线程每500ms发送一次串口数据。
