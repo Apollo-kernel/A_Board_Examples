@@ -105,7 +105,7 @@ int main(void)
   Clear_Display();
 
 
-	MoleMusicVolum = 1;						//音量,建议范围1~10,1大10小
+	MoleMusicVolum = 1;						//music volume,range:1~10,1high10low
 	enable_music_player();
 
 

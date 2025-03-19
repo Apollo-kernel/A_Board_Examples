@@ -28,7 +28,8 @@ enum MusicList
 	
 	
 	TEST_MUSIC,
-	TEST1_MUSIC
+	TEST1_MUSIC,
+	GALAYOUMUSIC
 	
 };
 
@@ -43,6 +44,35 @@ void play_a_note(uint16_t tone,uint8_t volumeLevel);
 void play_music_block(uint8_t volume_level);
 void music_callback(void);
 
+
+//降A大调定义
+#define note_A  220
+#define note_3A 110  
+#define note_5A 440  
+#define note_sA 233  //233.082
+#define note_B  247  //246.942
+#define note_3B  123  //123.471
+#define note_5B  494  //493.883
+#define note_C  262  //261.626
+#define note_5C  523  //523.251
+#define note_sC 277  //277.183
+#define note_D  294  //293.665
+#define note_sD 311  //311.127
+#define note_5D 587  //587.33
+#define note_3sD 156  //155.563
+#define note_E  330  //329.629
+#define note_3E  165  //164.814
+#define note_F  349  //349.228
+#define note_3F  175  //174.614
+#define note_sF 370  //369.994
+#define note_3sF 185  //184.997
+#define note_G  392  //391.995
+#define note_sG 415  //415.305
+#define note_3G 196  //195.998
+#define note_5sG 831  //830.609
+
+
+//C大调定义
 //定义低音音名C
 #define CL1 262
 #define CL2 294
@@ -150,7 +180,7 @@ void music_callback(void);
 
 extern const Note_TypeDef testMusic[];
 extern const Note_TypeDef test1Music[];
-
+extern const Note_TypeDef GalaYouMusic[];
 
 extern const Note_TypeDef MissMusic[];
 extern const Note_TypeDef CreatMusic[];

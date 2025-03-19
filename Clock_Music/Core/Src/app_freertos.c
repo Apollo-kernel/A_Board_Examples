@@ -184,7 +184,7 @@ void StartProcTask(void *argument)
 		if(!alarm)
 		{
 			Hundred_Display(number,display_birghness);
-			if(Music_Off==0)
+			if(Music_Off)
 				Music_Flag=MUSIC_FINISH;
 		}
 		else
@@ -292,13 +292,15 @@ void StartProcTask(void *argument)
 		if(Music_List==0)
 			music_player(MoleMusicVolum,POLICE_MUSIC);
 		else if(Music_List==1)
-			music_player(MoleMusicVolum,SUPER_MARIO_MUSIC);
+			music_player(MoleMusicVolum,GALAYOUMUSIC);
 		else if(Music_List==2)
 			music_player(MoleMusicVolum,TWO_TIGERS_MUSIC);
-		else if(Music_List==3)
+		else if(Music_List==5)
 			music_player(MoleMusicVolum,DOU_DI_ZHU_MUSIC);
 		else if(Music_List==4)
 			music_player(MoleMusicVolum,PEPPA_PIG_MUSIC);
+		else if(Music_List==3)
+			music_player(MoleMusicVolum,SUPER_MARIO_MUSIC);
 		else
 			music_player(MoleMusicVolum,AMBULANCE_MUSIC);
 			
@@ -323,7 +325,7 @@ void StartProcTask(void *argument)
 		
 		if(g_iButtonStatel_SW2)
 		{
-		Music_Off=!Music_Off;
+			Music_Off=!Music_Off;
 		if(Music_Off)
 			Music_Flag=MUSIC_FINISH;
 		else
