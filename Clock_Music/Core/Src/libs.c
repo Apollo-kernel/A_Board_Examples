@@ -26,7 +26,7 @@ void Refresh_LED_Neg(uint16_t state); // 刷新LED灯（0灭1亮）
 
 //用于音乐播放的全局变量
 uint8_t Music_Volume;     //音量
-uint8_t Music_Flag;       //切换音乐的标志位
+uint8_t Music_Flag=3;       //切换音乐的标志位
 uint8_t Music_Off=0;     	//音乐停止的标志位
 uint8_t Cycle_Flag=0;     //单曲循环的标志位
 uint8_t Music_List=0;     //音乐列表序号
@@ -455,120 +455,11 @@ const Note_TypeDef test1Music[]=
 	{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,50},
 	{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,50},
 	{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,50},
-	{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,50}
+	{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,3},{FH3,10},{0,50},
 };
 
-////《你》-GALA 乐谱（修正版）
-//const Note_TypeDef GalaYouMusic[] =
-//{
-//    {0, 567,},// 总音符数 = 566，数组长度 = 566 + 1 = 567
-//    // 前奏
-//    {CL7, 20}, {CL5, 20}, {CL7, 40}, {CL5, 20}, {CL7, 40}, {CL5, 20}, {DL5, 40}, {CL5, 20}, // 1-8
-//    {CM1, 20}, {CM1, 20}, {CL5, 20}, {CL7, 20}, {CM1, 20}, {CL7, 20}, {CL5, 20}, {CL7, 40}, // 9-16
-//    {CL5, 20}, {CL7, 40}, {CL5, 20}, {DL5, 40}, {CL5, 20}, {CM1, 20}, {CM1, 20}, {CL5, 20}, // 17-24
-//    {CL7, 20}, {CM1, 20}, {CL7, 20}, {CL5, 20}, {CL7, 40}, {CL5, 20}, {CL7, 40}, {CL5, 20}, // 25-32
-//    {DL5, 40}, {CL5, 20}, {CM1, 20}, {CM1, 20}, {CL5, 20}, {DM1, 40}, {EM1, 120}, {DM1, 40}, // 33-40
-//    {EM1, 40}, {DM1, 40}, {EM1, 40}, {CM1, 160}, {CM1, 80}, {CL7, 80}, {EM1, 80}, {DM1, 40}, // 41-48
-//    {EM1, 120}, {DM1, 40}, {EM1, 40}, {DM1, 40}, {EM1, 40}, {CM1, 160}, {CL7, 40}, {DL5, 80}, // 49-56
-//    {EM1, 200}, {DM1, 40}, {EM1, 40}, {DM1, 40}, {EM1, 40}, {CL7, 80}, {CM1, 80}, {CL7, 80}, // 57-64
-//    {EM1, 80}, {DM1, 40}, {EM1, 120}, {DM1, 40}, {EM1, 40}, {DM1, 40}, {EM1, 40}, {CL7, 80}, // 65-72
-//    {CM1, 80}, {DL5, 200}, {0, 80}, {EM1, 40}, {0, 4}, {EM1, 40}, {DM1, 20}, {EM1, 60}, // 73-80
-//    {DM1, 40}, {EM1, 40}, {CL5, 40}, {0, 40}, {EM1, 40}, {0, 4}, {EM1, 40}, {DM1, 20}, // 81-88
-//    {EM1, 60}, {DM1, 40}, {EM1, 40}, {CL5, 80}, {CL1, 120}, {0, 40}, {EM1, 40}, {0, 4}, // 89-96
-//    {EM1, 40}, {DM1, 20}, {EM1, 60}, {DM1, 40}, {CL1, 40}, {DM1, 40}, {0, 40}, {EM1, 40}, // 97-104
-//    {0, 4}, {EM1, 40}, {DM1, 20}, {EM1, 60}, {DM1, 40}, {EM1, 40}, {CM1, 80}, {CL1, 120}, // 105-112
-//    {0, 40}, {EM1, 40}, {0, 4}, {EM1, 40}, {DM1, 20}, {EM1, 60}, {DM1, 40}, {CL7, 40}, // 113-120
-//    {CL6, 20}, {CL3, 100}, {0, 20}, {CL3, 20}, {0, 4}, {CL3, 20}, {CL5, 80}, {EM1, 60}, // 121-128
-//    {DM1, 20}, {CL1, 40}, {0, 2}, {CL1, 80}, {0, 40}, {CL6, 40}, {EM1, 40}, {FL1, 40}, // 129-136
-//    {CL5, 120}, {CL1, 40}, {DM1, 40}, {EM1, 40}, {CL5, 80}, {CL6, 100}, {CL5, 20}, {CL6, 60}, // 137-144
-//    {CL5, 20}, {0, 2}, {CL5, 60}, {0, 2}, {CL5, 80}, {DM1, 160}, {EM1, 80}, {FL1, 80}, // 145-152
-//    {CL5, 120}, {CL1, 40}, {DM1, 40}, {EM1, 40}, {CM1, 80}, {CL6, 120}, {0, 4}, {CL6, 40}, // 153-160
-//    {CL5, 20}, {CL6, 60}, {CL5, 20}, {0, 2}, {CL5, 60}, {0, 2}, {CL5, 80}, {DM1, 160}, // 161-168
-//    {EM1, 80}, {FL1, 80}, {CL5, 120}, {CL1, 40}, {DM1, 40}, {EM1, 40}, {CM1, 80}, {DL5, 120}, // 169-176
-//    {0, 40}, {CL5, 40}, {CM1, 40}, {CL7, 20}, {CM1, 240}, {0, 80}, {EM1, 80}, {DM1, 80}, // 177-184
-//    {CL1, 80}, {CL5, 80}, {CL1, 80}, {DM1, 80}, {EM1, 80}, {FL1, 80}, {CL5, 80}, {FL1, 80}, // 185-192
-//    {EM1, 80}, {DM1, 80}, {CL1, 80}, {DM1, 80}, {EM1, 80}, {FL1, 80}, {EM1, 80}, {DM1, 80}, // 193-200
-//    {CL1, 80}, {CL5, 80}, {CL1, 80}, {DM1, 80}, {EM1, 80}, {FL1, 80}, {EM1, 80}, {DM1, 80}, // 201-208
-//};
 // 《你》-GALA 乐谱（需对照简谱逐行精确填充）
 const Note_TypeDef GalaYouMusic[] = {
-//    {0, 390}, // 假设统计总音符数767，实际需精准统计后修改
-//    // 前奏部分
-//			
-//			
-////		{note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20},
-////		{note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
-////		{note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20},
-////		{note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
-////		{note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20},
-////		{note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
-//		
-////		{AM7, 80}, {AM5, 80}, {AH2, 80}, {AH1, 80},
-////		{AM7, 80}, {AM5, 80}, {AH2, 80}, {AH1, 80},
-////		{AM7, 80}, {AM5, 80}, {AH2, 80}, {AH1, 80},
-////		{AM7, 80}, {AM5, 80}, {AH2, 80}, {AH1, 80},
-//		
-//    
-//		{note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
-//		{note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
-//		{note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
-//		{note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_D, 40},
-//		{note_E, 120}, {note_D, 40}, {note_E, 40}, {note_D, 40}, {note_E, 40}, {note_G, 80},
-//		{note_5C, 80}, {note_5B, 80}, {note_E, 80}, {note_D, 40},
-//		{note_E, 120}, {note_D, 40}, {note_E, 40}, {note_D, 40}, {note_E, 40}, {note_5C, 160},
-//		{note_5B, 40}, {note_5D, 80}, {note_E, 200},
-//		{note_D, 40}, {note_E, 40}, {note_D, 40}, {note_E, 40}, {note_5B, 80},
-//		{note_5C, 80}, {note_5B, 80}, {note_E, 80}, {note_D, 40},
-//		{note_E, 120}, {note_D, 40}, {note_E, 40}, {note_D, 40}, {note_E, 40}, {note_5B, 80},
-//		{note_5C, 80}, {note_5D, 200},
-//		{0, 80}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_G, 40},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_G, 80}, {note_C, 120},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_C, 40}, {note_D, 40},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_G, 40},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_5C, 80}, {note_C, 120},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_B, 40}, {note_A, 20}, {note_3G, 100},
-//		{0, 20}, {note_3G, 20}, {0, 1}, {note_3G, 20}, {0, 1}, {note_3G, 20}, {note_G, 80}, {note_E, 60}, {note_D, 20}, {note_C, 40}, {0, 1}, {note_C, 80},
-//		{0, 20}, {note_C, 40}, {0, 1}, {note_C, 40}, {note_D, 40}, {note_E, 40}, {note_A, 120},
-//		{0, 40}, {note_A, 40}, {note_E, 40}, {note_D, 40}, {note_C, 40}, {note_D, 120},
-//		{note_E, 80}, {note_F, 80}, {note_G, 120}, {note_E, 40}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5B, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_G, 80}, {note_5A, 80}, {note_G, 20}, {note_5A, 60}, {note_G, 20}, {0, 2}, {note_G, 60}, {0, 2}, {note_G, 80}, {note_D, 160},
-//		{note_E, 80}, {note_F, 80}, {note_G, 120}, {note_E, 40}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5B, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_5B, 80}, {note_5A, 120}, {0, 1}, {note_5A, 40}, {note_G, 20}, {note_5A, 60}, {note_5C, 80}, {note_5D, 120},
-//		{0, 40}, {note_G, 40}, {note_5C, 40}, {note_5B, 20}, {note_5C, 240},
-//		{0, 80},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_G, 40},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_G, 80}, {note_C, 120},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_C, 40}, {note_D, 40},
-//		{0, 40}, {note_E, 40}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_G, 40},
-//		{0, 40}, {note_E, 40}, {0, 1}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_E, 40}, {note_5C, 80}, {note_C, 120},
-//		{0, 40}, {note_E, 40}, {note_E, 40}, {note_D, 20}, {note_E, 60}, {note_D, 40}, {note_B, 40}, {note_A, 20}, {note_3G, 100},
-//		{0, 20}, {note_3G, 20}, {0, 1}, {note_3G, 20}, {0, 1}, {note_3G, 20}, {note_G, 80}, {note_E, 60}, {note_D, 20}, {note_C, 40}, {0, 1}, {note_C, 80},
-//		{0, 20}, {note_C, 40}, {0, 1}, {note_C, 40}, {note_D, 40}, {note_E, 40}, {note_A, 120},
-//		{0, 40}, {note_A, 40}, {note_E, 40}, {note_D, 40}, {note_C, 40}, {note_D, 200},
-//		{0, 80}, {note_E, 80}, {note_F, 80}, {note_G, 120}, {note_E, 40}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5B, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_G, 80}, {note_5A, 100}, {note_G, 20}, {note_5A, 40}, {note_G, 20}, {0, 1}, {note_G, 60}, {0, 2}, {note_D, 40}, {0, 2}, {note_D, 160},
-//		{note_E, 80}, {note_F, 80}, {note_G, 80}, {0, 10}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5D, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_5C, 80}, {note_5A, 100},
-//		{note_G, 20}, {note_5A, 40}, {note_G, 20}, {note_5A, 60}, {note_5C, 80}, {note_5D, 120},
-//		{0, 40}, {note_D, 40}, {note_E, 40}, {note_D, 20}, {note_C, 240},
-//		{0, 80}, {note_E, 80}, {note_F, 80}, {note_G, 120}, {note_E, 40}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5B, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_G, 80}, {note_5A, 100}, {note_G, 20}, {note_5A, 40}, {note_G, 20}, {0, 2}, {note_G, 60}, {0, 2}, {note_G, 80}, {note_D, 160},
-//		{note_E, 80}, {note_F, 80}, {note_G, 120}, {note_E, 40}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5B, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_5C, 80}, {note_5A, 120}, {0, 1}, {note_5A, 40}, {note_G, 20}, {note_5A, 60}, {note_5C, 80}, {note_5D, 120},
-//		{note_E, 80}, {note_F, 80}, {note_G, 120}, {note_E, 40}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5B, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_G, 80}, {note_5A, 100}, {note_G, 20}, {note_5A, 40}, {note_G, 20}, {0, 2}, {note_G, 60}, {0, 2}, {note_G, 80}, {note_D, 160},
-//		{note_E, 80}, {note_F, 80}, {note_G, 80}, {0, 20}, {note_G, 40}, {note_E, 20}, {note_G, 60}, {note_5D, 80}, {note_5C, 120},
-//		{note_C, 40}, {note_D, 40}, {note_E, 40}, {note_5C, 80}, {note_5A, 100},
-//		{note_G, 20}, {note_5A, 40}, {note_G, 20}, {note_5A, 60}, {note_5C, 80}, {note_5D, 120},
-//		{0, 40}, {note_G, 40}, {note_5C, 40}, {note_5B, 20}, {note_5C, 240},
-//		{0, 80}, {note_E, 80}, {note_D, 80}, {note_C, 80}, {note_G, 80}, {note_C, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80}, {note_G, 80}, {note_F, 80},
-//		{note_E, 80}, {note_D, 80}, {note_C, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80}, {note_E, 80}, {note_D, 80}, {note_C, 80}, {note_G, 80},
-//		{note_E, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80}, {note_G, 80}, {note_F, 80}, {note_E, 80}, {note_D, 80},
-//		{note_E, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80},
-//		{note_E, 80}, {note_D, 80}, {note_C, 80}, {note_G, 80}, {note_C, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80}, {note_G, 80}, {note_F, 80}, {note_E, 80}, {note_D, 80},
-
-
-
 		{0, 481},
     {note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
     {note_5B, 20}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5B, 40}, {note_G, 20}, {note_5D, 40}, {note_G, 20}, {note_5C, 20}, {note_5C, 20}, {note_G, 20}, {note_5B, 20}, {note_5C, 20},
@@ -627,9 +518,6 @@ const Note_TypeDef GalaYouMusic[] = {
     {note_E, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80}, {note_G, 80}, {note_F, 80}, {note_E, 80}, {note_D, 80},
     {note_E, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80},
     {note_E, 80}, {note_D, 80}, {note_C, 80}, {note_G, 80}, {note_C, 80}, {note_D, 80}, {note_E, 80}, {note_F, 80}, {note_G, 80}, {note_F, 80}, {note_E, 80}, {note_D, 80}
-
-
-
 };
 //未击中乐谱
 const Note_TypeDef MissMusic[]=

@@ -256,8 +256,8 @@ void StartProcTask(void *argument)
 					music_player(MoleMusicVolum,PEPPA_PIG_MUSIC);
 				else
 					music_player(MoleMusicVolum,AMBULANCE_MUSIC);
-			}
 //			}
+			}
 		}
 			
 //		//·äÃùÆ÷¿ªÆôSUPER_MARIO_MUSIC
@@ -270,6 +270,7 @@ void StartProcTask(void *argument)
 			{
 				alarm=0;
 				minute=5;
+				Music_Flag=MUSIC_FINISH;
 			}
 			
 				g_iButtonState_SW3=0;
