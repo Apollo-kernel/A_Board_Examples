@@ -12,7 +12,7 @@
 #define MUSIC_FINISH        3
 
 //定义驱动蜂鸣器的定时器时钟频率
-#define BEEP_TIM_CLOCK  9142857U	//8000000U
+#define BEEP_TIM_CLOCK  8000000U	//8000000U
 																	//9142857U
 //背景音乐列表
 enum MusicList
